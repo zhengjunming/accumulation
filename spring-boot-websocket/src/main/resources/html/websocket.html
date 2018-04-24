@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/sockjs.min.js"></script>
+    <script src="../js/stomp.min.js"></script>
+    <script type="text/javascript">
+        var url = 'localhost:1205';
+        var webSocket = null;
+        if ('WebSocket' in window) {
+            webSocket = new WebSocket("ws://" + url + "/ws");
+        } else {
+            webSocket = new SockJS("http://" + url + "/sockjs/ws");
+        }
+        // 建立连接处理
+        webSocket.onopen = onOpen;
+        // 接收处理
+        webSocket.onmessage = onMessage;
+        // 错误处理
+        webSocket.onerror = onError;
+        // 断开连接处理
+        webSocket.onclose = onClose;
+
+        function onOpen(event) {
+            console.log("Connection open...");
+        }
+
+        function onMessage(event) {
+            console.log("Received Message: " + event.data);
+        }
+
+        function onError() {
+            console.log("error");
+        }
+
+        function onClose() {
+            console.log("Connection close...");
+        }
+
+        function send() {
+            console.log(webSocket.readyState);
+            if (webSocket.readyState === SockJS.OPEN) {
+                var msg = document.getElementById("message").value;
+                // 发送消息
+                webSocket.send(msg);
+            } else {
+                alert("连接失败!");
+            }
+        }
+
+        function disconnect(){
+            if (webSocket != null) {
+                webSocket.close();
+                webSocket = null;
+            }
+        }
+
+        function reconnect() {
+            if (webSocket != null) {
+                webSocket.close();
+                webSocket = null;
+            }
+            if ('WebSocket' in window) {
+                webSocket = new WebSocket("ws://" + url + "/ws");
+            } else {
+                webSocket = new SockJS("http://" + url + "/sockjs/ws");
+            }
+            webSocket.onopen = onOpen;
+            webSocket.onmessage = onMessage;
+            webSocket.onerror = onError;
+            webSocket.onclose = onClose;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button id="disconnect" onclick="disconnect()">断开连接</button>
+        <button id="send" onclick="send()">发送信息</button>
+        <button id="reconnect" onclick="reconnect()">重新连接</button>
+    </div>
+    <div>
+        <label for="message"></label><textarea id="message" style="width: 350px"></textarea>
+    </div>
+</body>
+</html>
