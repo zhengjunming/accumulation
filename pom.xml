@@ -19,12 +19,6 @@
     </properties>
 
     <modules>
-        <!--2018-04-24-->
-        <module>spring-boot-websocket</module>
-        <module>spring-boot-sockjs</module>
-        <!--2018-04-25-->
-        <module>spring-boot-mail</module>
-        <!--2018-04-29-->
-        <module>spring-boot-file</module>
+        <module>spring-boot</module>
     </modules>
 </project>
