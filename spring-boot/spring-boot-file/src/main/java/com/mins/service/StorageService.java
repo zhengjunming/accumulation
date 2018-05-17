@@ -31,7 +31,7 @@ public interface StorageService {
     /**
      * store file for upload file
      *
-     * @param file file
+     * @param file          file
      * @param directoryPath directory path
      */
     void store(MultipartFile file, String directoryPath);
@@ -39,7 +39,7 @@ public interface StorageService {
     /**
      * load file
      *
-     * @param filename filename
+     * @param filename      filename
      * @param directoryPath directory path
      * @return Path Examples
      */
@@ -48,7 +48,7 @@ public interface StorageService {
     /**
      * load file as resource
      *
-     * @param filename filename
+     * @param filename      filename
      * @param directoryPath directory path
      * @return Resource Examples
      */

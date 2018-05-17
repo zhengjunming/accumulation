@@ -46,7 +46,8 @@ public class HttpClientTest {
         System.out.println(result);
 
         Map<String, Object> resultMap = gson.fromJson(result, new TypeToken<Map<String, Object>>() {
-        }.getType());System.out.println(resultMap.get("result"));
+        }.getType());
+        System.out.println(resultMap.get("result"));
         Map<String, Object> map1 = (Map<String, Object>) resultMap.get("result");
         System.out.println(map1.get("addressComponent"));
         Map<String, Object> map2 = (Map<String, Object>) map1.get("addressComponent");

@@ -20,13 +20,15 @@ import java.util.Map;
 public class WebSocketHandShake implements HandshakeInterceptor {
 
     @Override
-    public boolean beforeHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse, WebSocketHandler webSocketHandler, Map<String, Object> map) throws Exception {
+    public boolean beforeHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse, WebSocketHandler webSocketHandler,
+                                   Map<String, Object> map) throws Exception {
         log.info("握手之前: " + serverHttpRequest.getRemoteAddress().toString());
         return true;
     }
 
     @Override
-    public void afterHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse, WebSocketHandler webSocketHandler, Exception e) {
+    public void afterHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse, WebSocketHandler webSocketHandler,
+                               Exception e) {
         log.info("握手之后: " + serverHttpRequest.getRemoteAddress().toString());
     }
 }

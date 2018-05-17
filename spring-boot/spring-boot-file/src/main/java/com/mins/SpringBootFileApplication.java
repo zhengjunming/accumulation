@@ -21,7 +21,7 @@ public class SpringBootFileApplication {
 
     @Bean
     CommandLineRunner init(StorageService storageService) {
-        return(args) -> {
+        return (args) -> {
             storageService.deleteAll();
             storageService.init();
         };

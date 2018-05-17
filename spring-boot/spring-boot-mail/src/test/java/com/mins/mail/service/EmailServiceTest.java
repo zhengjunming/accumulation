@@ -47,7 +47,7 @@ public class EmailServiceTest {
         Map<String, String> pathAttachments = new HashMap<>();
         pathAttachments.put("filename", "path");
         pathAttachments.put("filename2", "path");
-        service.sendMessageWithAttachment(new String[] {"1594998836@qq.com"}, "This is a test mail", "<!DOCTYPE html>\n" +
+        service.sendMessageWithAttachment(new String[]{"1594998836@qq.com"}, "This is a test mail", "<!DOCTYPE html>\n" +
                         "<html lang=\"en\">\n" +
                         "<head>\n" +
                         "    <meta charset=\"UTF-8\">\n" +

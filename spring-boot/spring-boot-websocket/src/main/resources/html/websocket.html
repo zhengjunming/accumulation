@@ -50,7 +50,7 @@
             }
         }
 
-        function disconnect(){
+        function disconnect() {
             if (webSocket != null) {
                 webSocket.close();
                 webSocket = null;
@@ -75,13 +75,13 @@
     </script>
 </head>
 <body>
-    <div>
-        <button id="disconnect" onclick="disconnect()">断开连接</button>
-        <button id="send" onclick="send()">发送信息</button>
-        <button id="reconnect" onclick="reconnect()">重新连接</button>
-    </div>
-    <div>
-        <label for="message"></label><textarea id="message" style="width: 350px"></textarea>
-    </div>
+<div>
+    <button id="disconnect" onclick="disconnect()">断开连接</button>
+    <button id="send" onclick="send()">发送信息</button>
+    <button id="reconnect" onclick="reconnect()">重新连接</button>
+</div>
+<div>
+    <label for="message"></label><textarea id="message" style="width: 350px"></textarea>
+</div>
 </body>
 </html>
